@@ -1,9 +1,12 @@
 import React from 'react'
 import Box  from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
 
+
+
 const NavBar = () => {
+
+
 
     var boxStyle={
         box:{
@@ -11,7 +14,7 @@ const NavBar = () => {
             alignItems: 'center',
             textAlign: 'center',
             justifyContent: 'space-evenly',
-            padding: 2,
+            padding: 1,
             backgroundColor: '#042940',
         },
         link:{
@@ -29,13 +32,24 @@ const NavBar = () => {
     }
 
 
+    const onClick =()=>{
+        fetch('cs-resume(1).pdf').then(response=> response.blob().then(blob =>{
+            const fileURL = window.URL.createObjectURL(blob);
+
+            let alink= document.createElement('a')
+            alink.href = fileURL
+            alink.download = 'cs-resume(1).pdf'
+            alink.click()
+        }))
+    }
+
     return(
         <main>
             <Box sx={boxStyle.box}>
-            <Link href='ProjectsPage' sx={boxStyle.link}>Projects</Link> 
-            <Link href='AboutMePage' sx={boxStyle.link}>About Me</Link>
-            <Link href='ExperiencePage' sx={boxStyle.link}>Experience</Link>
-            <Link href='Resume' sx={boxStyle.resumeButton}>Resume</Link>
+            <Link href='/Projects' sx={boxStyle.link}>Projects</Link> 
+            <Link href='/AboutMe' sx={boxStyle.link}>About Me</Link>
+            <Link href='/ExperiencePage' sx={boxStyle.link}>Experience</Link>
+            <button onClick={onClick} sx={boxStyle.resumeButton}>Resume</button>
             </Box>
         </main>
     )
