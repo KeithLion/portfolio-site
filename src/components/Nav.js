@@ -1,6 +1,7 @@
 import React from 'react'
 import Box  from '@mui/material/Box'
 import Link from '@mui/material/Link'
+import Button from '@mui/material/Button'
 
 
 
@@ -25,8 +26,7 @@ const NavBar = () => {
         resumeButton:{
             border: '1px solid #9FC131',
             color: '#9FC131',
-            textDecoration:'none',
-            cursor:'pointer',
+            backgroundColor: '#042940',
             padding: 1
         }
     }
@@ -49,7 +49,7 @@ const NavBar = () => {
             <Link href='/Projects' sx={boxStyle.link}>Projects</Link> 
             <Link href='/AboutMe' sx={boxStyle.link}>About Me</Link>
             <Link href='/ExperiencePage' sx={boxStyle.link}>Experience</Link>
-            <button onClick={onClick} sx={boxStyle.resumeButton}>Resume</button>
+            <Button onClick={onClick} sx={boxStyle.resumeButton}>Resume</Button>
             </Box>
         </main>
     )
